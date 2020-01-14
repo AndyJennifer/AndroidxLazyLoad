@@ -1,4 +1,4 @@
-package com.jennifer.andy.androidxlazyload.data.normal_fragment
+package com.jennifer.andy.androidxlazyload.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,19 +14,14 @@ import com.jennifer.andy.androidxlazyload.R
  * Description:
  */
 
-class FragmentTwo : LogFragment() {
+class FragmentThree : LogFragment() {
 
     companion object {
-        fun newInstance(): FragmentTwo {
-            val args = Bundle()
-            val fragment = FragmentTwo()
-            fragment.arguments = args
-            return fragment
-        }
+        fun newInstance() = FragmentThree()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_two, container, false)
+        return inflater.inflate(R.layout.fragment_three, container, false)
     }
 
 }

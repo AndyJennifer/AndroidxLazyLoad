@@ -21,6 +21,11 @@
 
         <activity android:name="com.jennifer.andy.androidxlazyload.demo.demo1.Activity1" />
 
+        <activity android:name="com.jennifer.andy.androidxlazyload.demo.demo2.Activity2" />
+
+        <activity android:name="com.jennifer.andy.androidxlazyload.demo.demo3.Activity3" />
+
+        <activity android:name="com.jennifer.andy.androidxlazyload.demo.demo4.Activity4" />
     </application>
 
 </manifest>

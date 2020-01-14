@@ -1,8 +1,8 @@
 package com.jennifer.andy.androidxlazyload.ext
 
 import androidx.annotation.IdRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 
@@ -11,9 +11,27 @@ import androidx.lifecycle.Lifecycle
  * Author:  andy.xwt
  * Date:    2020-01-14 18:35
  * Description:
+ * 扩展Fragment及Activity,使用add+show+hide模式下的Fragment的懒加载
+ * 当调用 Fragment.showHideFragment ，确保已经先调用 Fragment.loadFragments
+ * 当调用 FragmentActivity.showHideFragment，确保已经先调用 FragmentActivity.loadFragments
  */
 
-private fun Fragment.loadFragments(
+/**
+ * 加载根Fragment
+ * @param containerViewId 布局id
+ * @param rootFragment  根fragment
+ */
+fun Fragment.loadRootFragment(@IdRes containerViewId: Int, rootFragment: Fragment) {
+    loadFragmentsTransaction(containerViewId, 0, childFragmentManager, rootFragment)
+}
+
+/**
+ * 加载同级的Fragment
+ * @param containerViewId 布局id
+ * @param showPosition  默认显示的角标
+ * @param fragments    加载的fragment
+ */
+fun Fragment.loadFragments(
     @IdRes containerViewId: Int,
     showPosition: Int = 0,
     vararg fragments: Fragment
@@ -21,13 +39,31 @@ private fun Fragment.loadFragments(
     loadFragmentsTransaction(containerViewId, showPosition, childFragmentManager, *fragments)
 }
 
-//调用showHide方法之前需要调用 loadFragments 方法
-private fun Fragment.showHideFragment(showFragment: Fragment) {
+/**
+ * 显示目标fragment，并隐藏其他fragment
+ * @param showFragment 需要显示的fragment
+ */
+fun Fragment.showHideFragment(showFragment: Fragment) {
     showHideFragmentTransaction(childFragmentManager, showFragment)
-
 }
 
-private fun AppCompatActivity.loadFragments(
+
+/**
+ * 加载根Fragment
+ * @param containerViewId 布局id
+ * @param rootFragment  根fragment
+ */
+fun FragmentActivity.loadRootFragment(@IdRes containerViewId: Int, rootFragment: Fragment) {
+    loadFragmentsTransaction(containerViewId, 0, supportFragmentManager, rootFragment)
+}
+
+/**
+ * 加载同级的Fragment
+ * @param containerViewId 布局id
+ * @param showPosition  默认显示的角标
+ * @param fragments    加载的fragment
+ */
+fun FragmentActivity.loadFragments(
     @IdRes containerViewId: Int,
     showPosition: Int = 0,
     vararg fragments: Fragment
@@ -35,18 +71,21 @@ private fun AppCompatActivity.loadFragments(
     loadFragmentsTransaction(containerViewId, showPosition, supportFragmentManager, *fragments)
 }
 
-private fun AppCompatActivity.showHideFragment(showFragment: Fragment) {
+/**
+ * 显示目标fragment，并隐藏其他fragment
+ * @param showFragment 需要显示的fragment
+ */
+fun FragmentActivity.showHideFragment(showFragment: Fragment) {
     showHideFragmentTransaction(supportFragmentManager, showFragment)
 }
 
 
 private fun loadFragmentsTransaction(
     @IdRes containerViewId: Int,
-    showPosition: Int = 0,
+    showPosition: Int,
     fragmentManager: FragmentManager,
     vararg fragments: Fragment
 ) {
-
     if (fragments.isNotEmpty()) {
         fragmentManager.beginTransaction().apply {
             for (index in fragments.indices) {
@@ -61,6 +100,10 @@ private fun loadFragmentsTransaction(
             }
 
         }.commit()
+    } else {
+        throw IllegalStateException(
+            "fragments must not empty"
+        )
     }
 }
 

@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 /**
  * Author:  andy.xwt
  * Date:    2020-01-14 14:44
- * Description:支持栏加载的fragment，需要配合 [] 使用
+ * Description:支持栏加载的fragment
  */
 
 open class LazyFragment : Fragment() {

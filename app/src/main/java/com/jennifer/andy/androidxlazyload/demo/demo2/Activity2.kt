@@ -1,4 +1,4 @@
-package com.jennifer.andy.androidxlazyload.demo.demo1
+package com.jennifer.andy.androidxlazyload.demo.demo2
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +13,7 @@ import com.jennifer.andy.androidxlazyload.fragment.generateNormalFragments
  * Description:
  */
 
-class Activity1 : AppCompatActivity() {
+class Activity2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,7 @@ class Activity1 : AppCompatActivity() {
 
     private fun initView() {
         val viewPager = findViewById<ViewPager>(R.id.view_pager)
-        viewPager.adapter = FragmentLazyPagerAdapter(supportFragmentManager, generateNormalFragments())
+        viewPager.adapter = FragmentLazyStatePageAdapter(supportFragmentManager, generateNormalFragments())
     }
 
 }
