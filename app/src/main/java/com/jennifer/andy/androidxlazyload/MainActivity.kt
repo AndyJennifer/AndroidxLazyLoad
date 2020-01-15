@@ -11,6 +11,7 @@ import com.jennifer.andy.androidxlazyload.demo.demo3.Activity3
 import com.jennifer.andy.androidxlazyload.demo.demo4.Activity4
 import com.jennifer.andy.androidxlazyload.demo.demo5.Activity5
 import com.jennifer.andy.androidxlazyload.demo.demo6.Activity6
+import com.jennifer.andy.androidxlazyload.demo.demo7.Activity7
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<Button>(R.id.btn_4).setOnClickListener(this)
         findViewById<Button>(R.id.btn_5).setOnClickListener(this)
         findViewById<Button>(R.id.btn_6).setOnClickListener(this)
+        findViewById<Button>(R.id.btn_7).setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -59,7 +61,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(Intent(this, Activity6::class.java))
             }
             R.id.btn_7 -> {//ViewPager2懒加载
-
+                startActivity(Intent(this, Activity7::class.java))
             }
         }
 

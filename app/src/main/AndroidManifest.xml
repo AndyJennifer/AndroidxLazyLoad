@@ -30,6 +30,8 @@
         <activity android:name="com.jennifer.andy.androidxlazyload.demo.demo5.Activity5" />
 
         <activity android:name="com.jennifer.andy.androidxlazyload.demo.demo6.Activity6" />
+
+        <activity android:name="com.jennifer.andy.androidxlazyload.demo.demo7.Activity7" />
     </application>
 
 </manifest>
