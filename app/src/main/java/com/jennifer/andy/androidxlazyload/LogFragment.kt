@@ -17,8 +17,7 @@ import androidx.fragment.app.Fragment
 
 open class LogFragment : Fragment() {
 
-    private val TAG = javaClass.simpleName
-
+    protected var TAG = javaClass.simpleName
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.jennifer.andy.androidxlazyload.R
 import com.jennifer.andy.androidxlazyload.ext.loadRootFragment
-import com.jennifer.andy.androidxlazyload.fragment.fragmentFour
+import com.jennifer.andy.androidxlazyload.fragment.FourFragment
 
 
 /**
@@ -22,6 +22,6 @@ class Activity4 : AppCompatActivity() {
     }
 
     private fun initView() {
-        loadRootFragment(R.id.fl_container, fragmentFour)
+        loadRootFragment(R.id.fl_container, FourFragment.newInstance())
     }
 }

@@ -6,10 +6,9 @@
 
 
     <TextView
+        android:id="@+id/tv_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
         android:gravity="center"
-        android:text="Fragment one"
         android:textSize="20sp" />
 </LinearLayout>

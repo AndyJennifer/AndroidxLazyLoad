@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import com.jennifer.andy.androidxlazyload.LogFragment
-import com.jennifer.andy.androidxlazyload.R
+import androidx.fragment.app.Fragment
+import com.jennifer.andy.androidxlazyload.*
 import com.jennifer.andy.androidxlazyload.ext.loadFragments
 import com.jennifer.andy.androidxlazyload.ext.showHideFragment
 
@@ -17,44 +17,40 @@ import com.jennifer.andy.androidxlazyload.ext.showHideFragment
  * Description:
  */
 
-class FragmentFour : LogFragment(), View.OnClickListener {
+class FourFragment : LazyFragment(), View.OnClickListener {
+
+    private lateinit var fragmentsMap: Map<String, Fragment>
 
     companion object {
-        fun newInstance() = FragmentFour()
+        fun newInstance() = FourFragment()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_four, container, false)
-    }
+    ): View? = inflater.inflate(R.layout.fragment_four, container, false)
 
-    override fun onResume() {
-        super.onResume()
-        initView()
-    }
 
-    private fun initView() {
+    override fun lazyInit() {
         view?.findViewById<Button>(R.id.btn_1)?.setOnClickListener(this)
         view?.findViewById<Button>(R.id.btn_2)?.setOnClickListener(this)
         view?.findViewById<Button>(R.id.btn_3)?.setOnClickListener(this)
-        loadFragments(R.id.fl_container, 0, *generateNormalFragments().toTypedArray())
+        fragmentsMap = generate123Fragments()
+        loadFragments(R.id.fl_container, 0, *fragmentsMap.values.toTypedArray())
     }
 
     override fun onClick(view: View) {
         when (view.id) {
             R.id.btn_1 -> {
-                showHideFragment(fragmentOne)
+                showHideFragment(fragmentsMap.getValue(FRAGMENT_ONE))
             }
             R.id.btn_2 -> {
-                showHideFragment(fragmentTwo)
+                showHideFragment(fragmentsMap.getValue(FRAGMENT_TWO))
             }
             R.id.btn_3 -> {
-                showHideFragment(fragmentThree)
+                showHideFragment(fragmentsMap.getValue(FRAGMENT_THREE))
             }
         }
     }
-
 }

@@ -115,9 +115,9 @@ private fun showHideFragmentTransaction(fragmentManager: FragmentManager, showFr
         //获取其中所有的fragment,其他的fragment进行隐藏
         val fragments = fragmentManager.fragments
         for (fragment in fragments) {
-            if (fragment !== showFragment) {
-                setMaxLifecycle(fragment, Lifecycle.State.STARTED)
+            if (fragment != showFragment) {
                 hide(fragment)
+                setMaxLifecycle(fragment, Lifecycle.State.STARTED)
             }
         }
     }.commit()

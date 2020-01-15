@@ -3,8 +3,11 @@ package com.jennifer.andy.androidxlazyload.demo.demo1
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import com.jennifer.andy.androidxlazyload.R
-import com.jennifer.andy.androidxlazyload.fragment.generateNormalFragments
+import com.jennifer.andy.androidxlazyload.demo.adapter.FragmentLazyPagerAdapter
+import com.jennifer.andy.androidxlazyload.generate123FragmentTitles
+import com.jennifer.andy.androidxlazyload.generate123Fragments
 
 
 /**
@@ -22,8 +25,14 @@ class Activity1 : AppCompatActivity() {
     }
 
     private fun initView() {
-        val viewPager = findViewById<ViewPager>(R.id.view_pager)
-        viewPager.adapter = FragmentLazyPagerAdapter(supportFragmentManager, generateNormalFragments())
+        val viewPager = findViewById<ViewPager>(R.id.view_pager).apply {
+            adapter = FragmentLazyPagerAdapter(
+                supportFragmentManager,
+                generate123Fragments().values.toMutableList(),
+                generate123FragmentTitles()
+            )
+        }
+        findViewById<TabLayout>(R.id.tab_layout).setupWithViewPager(viewPager)
     }
 
 }

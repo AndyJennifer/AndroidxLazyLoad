@@ -9,6 +9,8 @@ import com.jennifer.andy.androidxlazyload.demo.demo1.Activity1
 import com.jennifer.andy.androidxlazyload.demo.demo2.Activity2
 import com.jennifer.andy.androidxlazyload.demo.demo3.Activity3
 import com.jennifer.andy.androidxlazyload.demo.demo4.Activity4
+import com.jennifer.andy.androidxlazyload.demo.demo5.Activity5
+import com.jennifer.andy.androidxlazyload.demo.demo6.Activity6
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -38,9 +40,26 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_4 -> {//fragment嵌套fragment下的懒加载
                 startActivity(Intent(this, Activity4::class.java))
             }
-            R.id.btn_5 -> {//fragment嵌套view _pager下的懒加载
+            R.id.btn_5 -> {//复杂fragment嵌套的懒加载1
+
+                //一级界面用 add+show+hide 显示ABC三个fragment.
+                //AFragment: 没有任何嵌套，只是单独的一个Fragment
+                //BFragment: 是通过 add+show+hide模式显示 one two three 三个Fragment
+                //CFragment: 是通过 ViewPager 模式显示 4个 TextFragment
+
+                startActivity(Intent(this, Activity5::class.java))
             }
-            R.id.btn_6 -> {//ViewPager2懒加载
+            R.id.btn_6 -> {//复杂fragment嵌套的懒加载2
+
+                //一级界面 使用ViewPager 显示ABC三个fragment.
+                //AFragment: 没有任何嵌套，只是单独的一个Fragment
+                //BFragment: 是通过 add+show+hide模式显示 one two three 三个Fragment
+                //CFragment: 是通过 ViewPager 模式显示 4个 TextFragment
+
+                startActivity(Intent(this, Activity6::class.java))
+            }
+            R.id.btn_7 -> {//ViewPager2懒加载
+
             }
         }
 

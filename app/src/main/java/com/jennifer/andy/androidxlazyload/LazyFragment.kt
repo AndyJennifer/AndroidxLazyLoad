@@ -1,6 +1,6 @@
 package com.jennifer.andy.androidxlazyload
 
-import androidx.fragment.app.Fragment
+import android.util.Log
 
 
 /**
@@ -9,18 +9,24 @@ import androidx.fragment.app.Fragment
  * Description:支持栏加载的fragment
  */
 
-open class LazyFragment : Fragment() {
+abstract class LazyFragment : LogFragment() {
 
     private var isLoaded = false
 
     override fun onResume() {
         super.onResume()
-        if (!isLoaded) {
+        if (!isLoaded && !isHidden) {
             lazyInit()
+            Log.d(TAG, "lazyInit:!!!!!!!")
             isLoaded = true
         }
     }
 
-    open fun lazyInit() {}
+    override fun onDestroyView() {
+        super.onDestroyView()
+        isLoaded = false
+    }
+
+    abstract fun lazyInit()
 
 }

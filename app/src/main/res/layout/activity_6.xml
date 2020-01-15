@@ -5,11 +5,9 @@
     android:orientation="vertical">
 
 
-    <TextView
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="Fragment three" />
+        android:layout_height="match_parent" />
+
 </LinearLayout>

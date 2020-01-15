@@ -1,22 +1,15 @@
-package com.jennifer.andy.androidxlazyload.demo.demo2
+package com.jennifer.andy.androidxlazyload.demo.demo6
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.jennifer.andy.androidxlazyload.R
-import com.jennifer.andy.androidxlazyload.demo.adapter.FragmentLazyStatePageAdapter
-import com.jennifer.andy.androidxlazyload.generate123FragmentTitles
-import com.jennifer.andy.androidxlazyload.generate123Fragments
+import com.jennifer.andy.androidxlazyload.demo.adapter.FragmentLazyPagerAdapter
+import com.jennifer.andy.androidxlazyload.generateABCFragmentTitles
+import com.jennifer.andy.androidxlazyload.generateABCFragments
 
-
-/**
- * Author:  andy.xwt
- * Date:    2020-01-14 14:48
- * Description:
- */
-
-class Activity2 : AppCompatActivity() {
+class Activity6 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,13 +19,12 @@ class Activity2 : AppCompatActivity() {
 
     private fun initView() {
         val viewPager = findViewById<ViewPager>(R.id.view_pager).apply {
-            adapter = FragmentLazyStatePageAdapter(
+            adapter = FragmentLazyPagerAdapter(
                 supportFragmentManager,
-                generate123Fragments().values.toMutableList(),
-                generate123FragmentTitles()
+                generateABCFragments().values.toMutableList(),
+                generateABCFragmentTitles()
             )
         }
-
         findViewById<TabLayout>(R.id.tab_layout).setupWithViewPager(viewPager)
     }
 
