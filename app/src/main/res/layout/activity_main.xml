@@ -50,6 +50,6 @@
         android:id="@+id/btn_7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ViewPager2懒加载" />
+        android:text="View_Pager2懒加载" />
 
 </LinearLayout>

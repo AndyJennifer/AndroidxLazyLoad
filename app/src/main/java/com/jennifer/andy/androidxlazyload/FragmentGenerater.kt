@@ -54,7 +54,7 @@ fun generateABCFragmentTitles() = mutableListOf<String>().apply {
  */
 fun generateTextFragments(amount: Int) = mutableListOf<Fragment>().apply {
     for (i in 0..amount) {
-        add(TextFragment.newInstance("TextFragment:${i+1}"))
+        add(TextFragment.newInstance("Fragment:${i+1}"))
     }
 }
 
@@ -64,6 +64,6 @@ fun generateTextFragments(amount: Int) = mutableListOf<Fragment>().apply {
  */
 fun generateTextFragmentTitles(amount: Int) = mutableListOf<String>().apply {
     for (i in 0..amount) {
-        add("TextFragment:${i+1}")
+        add("Fragment:${i+1}")
     }
 }
