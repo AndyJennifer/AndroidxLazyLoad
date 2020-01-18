@@ -79,7 +79,17 @@ fun FragmentActivity.showHideFragment(showFragment: Fragment) {
     showHideFragmentTransaction(supportFragmentManager, showFragment)
 }
 
-
+/**
+ * 使用add+show+hide模式加载fragment
+ *
+ * 默认显示位置[showPosition]的Fragment，最大Lifecycle为Lifecycle.State.RESUMED
+ * 其他隐藏的Fragment，最大Lifecycle为Lifecycle.State.STARTED
+ *
+ *@param containerViewId 容器id
+ *@param showPosition  fragments
+ *@param fragmentManager FragmentManager
+ *@param fragments  控制显示的Fragments
+ */
 private fun loadFragmentsTransaction(
     @IdRes containerViewId: Int,
     showPosition: Int,
@@ -107,6 +117,12 @@ private fun loadFragmentsTransaction(
     }
 }
 
+/**
+ * 显示需要显示的Fragment[showFragment]，并设置其最大Lifecycle为Lifecycle.State.RESUMED。
+ * 同时隐藏其他Fragment,并设置最大Lifecycle为Lifecycle.State.STARTED
+ * @param fragmentManager
+ * @param showFragment
+ */
 private fun showHideFragmentTransaction(fragmentManager: FragmentManager, showFragment: Fragment) {
     fragmentManager.beginTransaction().apply {
         show(showFragment)
