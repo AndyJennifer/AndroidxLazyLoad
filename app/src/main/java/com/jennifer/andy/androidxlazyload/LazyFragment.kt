@@ -6,7 +6,7 @@ import android.util.Log
 /**
  * Author:  andy.xwt
  * Date:    2020-01-14 14:44
- * Description:支持栏加载的fragment
+ * Description: Androidx 下支持栏加载的fragment
  */
 
 abstract class LazyFragment : LogFragment() {
