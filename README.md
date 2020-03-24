@@ -127,3 +127,14 @@ abstract class LazyFragment : LogFragment() {
   1. 对于 Fragment 的嵌套，及时使用了 `setMaxLifecycle` 方法。同级不可见的Fragment， 仍然要调用 `onResume` 方法。
   2. 需要在原有的 add+show+hide 方法中，继续调用 setMaxLifecycle 方法来控制Fragment 的最大生命状态。
 
+
+## 最后
+
+如果你觉得项目不错，欢迎点击 star ❤️或 follow，也可以帮忙分享给你更多的朋友。你的支持与鼓励是给我继续做好该项目的最大动力。
+
+## 联系我
+
+- QQ:443696320
+- 简书：[AndyandJennifer](https://www.jianshu.com/users/921c778fb5e1/timeline)
+- 掘金：[AndyandJennifer](https://juejin.im/user/5acc1ea06fb9a028bc2e0fc1)
+- Email: [andyjennifer@126.com](andyjennifer@126.com)
