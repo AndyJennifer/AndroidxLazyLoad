@@ -60,6 +60,11 @@ open class LogFragment : Fragment() {
         Log.d(TAG, "onResume: ")
     }
 
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause: ")
+    }
+
     override fun onStop() {
         super.onStop()
         Log.d(TAG, "onStop: ")
